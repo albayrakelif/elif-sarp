@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Save the Date · Elif & Sarp · 08.08.2026</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #e8e0d0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+
+    /* Kart: görselin orantısını koruyarak genişler */
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      /* davetiye.png oranı ≈ 0.63 : 1  (genişlik : yükseklik) */
+      aspect-ratio: 630 / 1000;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.22);
+      border-radius: 2px;
+      overflow: hidden;
+      animation: fadeIn 1s ease both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── QR kutucuğu — "DETAYLAR" kutusunun üzerine tam oturuyor ──
+       Görseldeki kutu konumu:
+         Sol kenardan  ≈ %62  |  Üstten ≈ %76
+         Genişlik      ≈ %30  |  Yükseklik ≈ %14
+    */
+    .qr-overlay {
+      position: absolute;
+      left:   62%;
+      top:    76%;
+      width:  30%;
+      aspect-ratio: 1;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4%;
+      cursor: pointer;
+    }
+
+    #qrcode {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #qrcode img,
+    #qrcode canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <!-- Davetiye görseli -->
+  <img class="card-img" src="davetiye.png" alt="Elif & Sarp Save the Date">
+
+  <!-- QR kod → DETAYLAR kutusunun üzerine -->
+  <a class="qr-overlay" id="qrLink" href="#" target="_blank" title="Katılım formunu açmak için tıklayın">
+    <div id="qrcode"></div>
+  </a>
+</div>
+
+<script>
+  // ─────────────────────────────────────────────────────────────────
+  // Siteyi yayına aldıktan sonra bu URL'i güncelleyin.
+  // Örn: 'https://elif-sarp.netlify.app/rsvp.html'
+  const RSVP_URL = window.location.href.replace(/[^/]*$/, 'rsvp.html');
+  // ─────────────────────────────────────────────────────────────────
+
+  document.getElementById('qrLink').href = RSVP_URL;
+
+  new QRCode(document.getElementById('qrcode'), {
+    text: RSVP_URL,
+    width: 300,
+    height: 300,
+    colorDark:  '#1a4fa0',   /* davetiyedeki mavi tona yakın */
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.M
+  });
+</script>
+
+</body>
+</html>
