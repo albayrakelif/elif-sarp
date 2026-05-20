@@ -17,13 +17,11 @@
       padding: 24px 16px;
     }
 
-    /* Kart: görselin orantısını koruyarak genişler */
     .card {
       position: relative;
       width: 100%;
       max-width: 480px;
-      /* davetiye.png oranı ≈ 0.63 : 1  (genişlik : yükseklik) */
-      aspect-ratio: 630 / 1000;
+      aspect-ratio: 1023 / 1537;
       box-shadow: 0 12px 48px rgba(0,0,0,0.22);
       border-radius: 2px;
       overflow: hidden;
@@ -44,66 +42,40 @@
       display: block;
     }
 
-    /* ── QR kutucuğu — "DETAYLAR" kutusunun üzerine tam oturuyor ──
-       Görseldeki kutu konumu:
-         Sol kenardan  ≈ %62  |  Üstten ≈ %76
-         Genişlik      ≈ %30  |  Yükseklik ≈ %14
-    */
     .qr-overlay {
       position: absolute;
-      left:   62%;
-      top:    76%;
-      width:  30%;
+      left:   71%;
+      top:    77%;
+      width:  15%;
       aspect-ratio: 1;
-      background: #fff;
+      background: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 4%;
       cursor: pointer;
     }
 
-    #qrcode {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #qrcode img,
-    #qrcode canvas {
-      width: 100% !important;
-      height: 100% !important;
-    }
+    #qrcode { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+    #qrcode img, #qrcode canvas { width: 100% !important; height: 100% !important; }
   </style>
 </head>
 <body>
 
 <div class="card">
-  <!-- Davetiye görseli -->
-  <img class="card-img" src="davetiye.png" alt="Elif & Sarp Save the Date">
-
-  <!-- QR kod → DETAYLAR kutusunun üzerine -->
+  <img class="card-img" src="1kisilik-template.png" alt="Elif & Sarp Save the Date">
   <a class="qr-overlay" id="qrLink" href="#" target="_blank" title="Katılım formunu açmak için tıklayın">
     <div id="qrcode"></div>
   </a>
 </div>
 
 <script>
-  // ─────────────────────────────────────────────────────────────────
-  // Siteyi yayına aldıktan sonra bu URL'i güncelleyin.
-  // Örn: 'https://elif-sarp.netlify.app/rsvp.html'
   const RSVP_URL = window.location.href.replace(/[^/]*$/, 'rsvp.html');
-  // ─────────────────────────────────────────────────────────────────
-
   document.getElementById('qrLink').href = RSVP_URL;
-
   new QRCode(document.getElementById('qrcode'), {
     text: RSVP_URL,
     width: 300,
     height: 300,
-    colorDark:  '#1a4fa0',   /* davetiyedeki mavi tona yakın */
+    colorDark:  '#1a4fa0',
     colorLight: '#ffffff',
     correctLevel: QRCode.CorrectLevel.M
   });
