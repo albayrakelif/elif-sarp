@@ -21,6 +21,24 @@
       border-bottom: 1px solid #a8b8d8;
       text-align: center;
       padding: 32px 24px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before, .header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 140px;
+      height: 100%;
+      background-image: url('motif.png');
+      background-size: 140px 140px;
+      background-repeat: repeat-y;
+      pointer-events: none;
+    }
+    .header::before { left: 0; }
+    .header::after  { right: 0; }
+    @media (max-width: 600px) {
+      .header::before, .header::after { display: none; }
     }
 
     .suptitle {
