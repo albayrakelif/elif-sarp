@@ -301,9 +301,31 @@
       padding: 24px;
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 16px;
+      font-size: 22px;
       color: var(--text);
-      opacity: 0.45;
+      opacity: 0.55;
+    }
+
+    /* ── Header maiolika motifi — sol kenar ── */
+    .header {
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before, .header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 140px;
+      height: 100%;
+      background-image: url('motif.png');
+      background-size: 140px 140px;
+      background-repeat: repeat-y;
+      pointer-events: none;
+    }
+    .header::before { left: 0; }
+    .header::after  { right: 0; }
+    @media (max-width: 600px) {
+      .header::before, .header::after { display: none; }
     }
   </style>
 </head>
