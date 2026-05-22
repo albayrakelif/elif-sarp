@@ -38,14 +38,7 @@
     .header::before { left: 0; }
     .header::after  { right: 0; }
     @media (max-width: 600px) {
-      .header::before, .header::after {
-        width: 55px;
-        background-size: 55px 55px;
-      }
-      .header {
-        padding-left: 60px;
-        padding-right: 60px;
-      }
+      .header::before, .header::after { display: none; }
     }
 
     .suptitle {
