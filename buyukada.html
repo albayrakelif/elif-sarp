@@ -235,6 +235,33 @@
 
     .ferry-btn:hover { background: var(--blue); color: white; }
 
+    /* ── Important note ── */
+    .important-note {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: rgba(209,70,47,0.07);
+      border: 1px solid rgba(209,70,47,0.35);
+      border-left: 3px solid #d1462f;
+      border-radius: 3px;
+      padding: 12px 14px;
+    }
+
+    .important-note .note-icon {
+      font-size: 15px;
+      line-height: 1.5;
+      flex-shrink: 0;
+    }
+
+    .important-note p {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .important-note strong { color: #d1462f; }
+
     /* ── Tips ── */
     .tip-list {
       display: flex;
@@ -394,37 +421,37 @@
           <polyline points="12 6 12 12 16 14"/>
         </svg>
       </div>
-      <div class="card-title">Düğün Günü Vapurları</div>
+      <div class="card-title">Düğün Günü Capri Seferleri</div>
     </div>
     <div class="card-body">
       <div class="ferry-list">
 
         <div class="ferry-item">
-          <span class="ferry-badge">Gidiş</span>
+          <span class="ferry-badge">17:40 · Gidiş</span>
           <div class="ferry-info">
-            <div class="ferry-route">? → Büyükada Capri Beach</div>
+            <div class="ferry-route">Bostancı İskelesi → Büyükada Capri Beach</div>
             <div class="ferry-detail">
-              Kalkış yeri ve saati yakında paylaşılacaktır.
+              Bostancı İskelesi'nden kalkış. Vapur, Şehir Hatları İskelesi yanından kalkacaktır.
             </div>
           </div>
         </div>
 
         <div class="ferry-item">
-          <span class="ferry-badge">Dönüş 1</span>
+          <span class="ferry-badge">23:45 · Dönüş 1</span>
           <div class="ferry-info">
-            <div class="ferry-route">Büyükada Capri Beach → ?</div>
+            <div class="ferry-route">Büyükada Capri Beach → Bostancı İskelesi</div>
             <div class="ferry-detail">
-              Kalkış yeri ve saati yakında paylaşılacaktır.
+              Bostancı İskelesi'ne varış.
             </div>
           </div>
         </div>
 
         <div class="ferry-item">
-          <span class="ferry-badge">Dönüş 2</span>
+          <span class="ferry-badge">02:00 · After Dönüş</span>
           <div class="ferry-info">
-            <div class="ferry-route">Büyükada Capri Beach → ?</div>
+            <div class="ferry-route">Büyükada Capri Beach → Bostancı İskelesi</div>
             <div class="ferry-detail">
-              Kalkış yeri ve saati yakında paylaşılacaktır.
+              Bostancı İskelesi'ne varış (Kalkış 02:30 olabilir).
             </div>
           </div>
         </div>
@@ -442,7 +469,7 @@
           <path d="M3 13h18"/>
         </svg>
       </div>
-      <div class="card-title">Adaya Vapurla Geliş</div>
+      <div class="card-title">Adaya Bireysel Vapurla Gelmek İsteyenler İçin</div>
     </div>
     <div class="card-body">
       <div class="ferry-list">
@@ -516,10 +543,11 @@
 
       </div>
 
-      <div class="ferry-links" style="display:block; padding-top:14px; margin-top:14px; border-top:1px solid rgba(168,184,216,0.3);">
-        <p style="font-size:12px; font-weight:300; color:var(--text); line-height:1.7;">
-          🪪 Her iki araç için de <strong>fiziksel İstanbulkart</strong> gereklidir. Kartınızı doldurmak için Çınar Caddesi Araba Meydanı'ndaki duraklarda yükleme makinesi bulunmaktadır.
-        </p>
+      <div style="padding-top:14px; margin-top:14px; border-top:1px solid rgba(168,184,216,0.3);">
+        <div class="important-note">
+          <span class="note-icon">🪪</span>
+          <p>Her iki araç için de <strong>fiziksel İstanbulkart</strong> gereklidir. Kartınızı doldurmak için Çınar Caddesi Araba Meydanı'ndaki duraklarda yükleme makinesi bulunmaktadır.<br>İstanbulkart uygulamasındaki <strong>QR kod ile ödeme çalışmamaktadır</strong>.</p>
+        </div>
       </div>
     </div>
   </div>
